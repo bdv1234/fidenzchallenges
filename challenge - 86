@@ -1,0 +1,62 @@
+<script type="text/javascript">
+	
+function makeAlphabetSentenceSort(str) {
+	var lowecaseStr = '';
+	//[A-Za-z\s]
+	if(/^[a-z\s]+$/.test(str)) { // check if str only contain a-z characters
+		console.log(true);
+		// if valid sentence
+		lowecaseStr = str.toLowerCase() // this is optionall... I can comment this
+		console.log(lowecaseStr);
+
+		var arr = lowecaseStr.split(' ');
+		var finalSotedWord = '';
+
+		arr.sort(function(a,b) {
+			return a.length - b.length;
+		});
+
+		console.log(arr);
+
+		for(var i=0; i < arr.length; i++) {
+			var arr2 = arr[i].split('');
+
+			var sortedWord = arr2.sort();
+			finalSotedWord = finalSotedWord + " " + sortedWord.join('');
+		}
+		var newStr = finalSotedWord.trim();
+		console.log(newStr);
+		return newStr;
+
+	} else {
+		console.log(false);
+		return "not a valid sentence";
+	}
+
+	/*var dd = str.trim();
+	console.log(dd);
+	var arr = str.split(' ');
+	var finalSotedWord = '';
+
+	arr.sort(function(a,b) {
+		return a.length - b.length;
+	});
+
+	console.log(arr);
+
+	for(var i=0; i < arr.length; i++) {
+		var arr2 = arr[i].split('');
+
+		var sortedWord = arr2.sort();
+		finalSotedWord = finalSotedWord + " " + sortedWord.join('');
+	}
+	var newStr = finalSotedWord.trim();
+	console.log(newStr);
+	return newStr; */
+}
+
+makeAlphabetSentenceSort("she lives with him in a small apartment");
+//makeAlphabetSentenceSort("i love585 you");
+
+
+</script>
